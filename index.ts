@@ -17,8 +17,13 @@ class FluorescentTube {
 class TubeUnit {
   tubes: FluorescentTube[] = [];
   tubesReplaced: number = 0;
-
+  
   constructor() {
+      this.changeTubes()
+  }
+
+  changeTubes(){
+    this.tubes = []
     for (let i = 0; i < TUBE_SIZE; i++) {
       this.tubes.push(new FluorescentTube());
     }
@@ -31,6 +36,7 @@ class TubeUnit {
 
       hours -= index2.hoursToFailure;
       this.tubesReplaced += TUBE_SIZE;
+      this.changeTubes()
     }
   }
 }
